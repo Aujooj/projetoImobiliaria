@@ -38,7 +38,7 @@
                                 <td><?= $corretor->telefone ?></td>
                                 <td>
                                     <form action="/corretor-editar" method="GET">
-                                    <button class="button-list" type="submit" name="corretor-editar" value="<?= $corretor->creci ?>">
+                                    <button class="button-list" type="submit" name="editar" value="<?= $corretor->creci ?>">
                                         <img src="../../public/IMG/pencil.png" width="20" height="20">
                                     </button>
                                     </form>

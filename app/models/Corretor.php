@@ -19,6 +19,20 @@ class Corretor
     public function inserir()
     {
         $query = $this->bd->prepare("INSERT INTO corretores (creci, senha, data_nasc, nome, telefone, email) VALUES (:creci, :senha, :data_nasc, :nome, :telefone, :email)");
+        
+        $query->bindValue(':creci', $this->creci);
+        $query->bindValue(':senha', $this->senha);
+        $query->bindValue(':data_nasc', $this->data_nasc);
+        $query->bindValue(':nome', $this->nome);
+        $query->bindValue(':telefone', $this->telefone);
+        $query->bindValue(':email', $this->email);
+
+        $query->execute();
+        return true;
+    }
+
+    public function editar($id_corretor) {
+        $query = $this->bd->prepare("UPDATE corretores SET creci = :creci, senha = :senha, data_nasc = :data_nasc, nome = :nome, telefone = :telefone, email = :email WHERE id_corretor = :id_corretor");
 
         $query->bindValue(':creci', $this->creci);
         $query->bindValue(':senha', $this->senha);
@@ -26,6 +40,7 @@ class Corretor
         $query->bindValue(':nome', $this->nome);
         $query->bindValue(':telefone', $this->telefone);
         $query->bindValue(':email', $this->email);
+        $query->bindValue(':id_corretor', $id_corretor);
 
         $query->execute();
         return true;
@@ -82,6 +97,15 @@ class Corretor
         $query->execute();
         $crecis = $query->fetchAll(PDO::FETCH_ASSOC);
         return $crecis[0]['creci'];
+    }
+
+    public function buscarEntityCorretor($creci)
+    {
+        $query = $this->bd->prepare("SELECT * FROM corretores WHERE creci = :creci");
+        $query->bindValue(':creci', $creci);
+        $query->execute();
+        $corretor = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $corretor;
     }
 
     public function __get($propriedade)

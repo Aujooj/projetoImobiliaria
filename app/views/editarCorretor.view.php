@@ -29,9 +29,10 @@
             <form action="corretor-editar" method="POST">
                 <fieldset>
                     <legend>Dados Pessoais</legend>
-                    <label>Nome<br><input type="text" name="nome" value="<?= $_POST['nome'] ?? ''; ?>" required></label><br>
-                    <label>Data de Nascimento<br><input type="date" name="dataNascimento" value="<?= $_POST['dataNascimento'] ?? ''; ?>" required></label><br>
-                    <label>Email<br><input type="email" name="email" value="<?= $_POST['email'] ?? ''; ?>" required></label><br>
+                    <?php $_SESSION['id_corretor'] = $dados[0]['id_corretor'] ?? '';?>
+                    <label>Nome<br><input type="text" name="nome" value="<?= $dados[0]['nome'] ?? ''; ?>" required></label><br>
+                    <label>Data de Nascimento<br><input type="date" name="dataNascimento" value="<?= $dados[0]['data_nasc'] ?? ''; ?>" required></label><br>
+                    <label>Email<br><input type="email" name="email" value="<?= $dados[0]['email'] ?? ''; ?>" required></label><br>
                 </fieldset>
                 <fieldset>
                     <legend>Telefone</legend>
@@ -40,13 +41,13 @@
                             <option value="Celular">Celular</option>
                             <option value="Residencial">Residencial</option>
                         </select></label><br>
-                    <label>Número <input type="number" name="numTelefone" value="<?= $_POST['numTelefone'] ?? ''; ?>" placeholder="(00) 00000-0000" required></label>
+                    <label>Número <input type="number" name="numTelefone" value="<?= $dados[0]['telefone'] ?? ''; ?>" placeholder="(00) 00000-0000" required></label>
                 </fieldset>
                 <fieldset>
                     <legend>Sistema</legend>
-                    <label>Creci<br><input type="text" name="creci" value="<?= $_POST['creci'] ?? ''; ?>" required></label><br>
-                    <label>Senha<br><input type="password" name="senha" value="<?= $_POST['senha'] ?? ''; ?>" required></label><br>
-                    <label>Confirmar senha<br><input type="password" name="confirmarSenha" value="<?= $_POST['confirmarSenha'] ?? ''; ?>" required></label><br>
+                    <label>Creci<br><input type="text" name="creci" value="<?= $dados[0]['creci'] ?? ''; ?>" required></label><br>
+                    <label>Senha<br><input type="password" name="senha" required></label><br>
+                    <label>Confirmar senha<br><input type="password" name="confirmarSenha" required></label><br>
                 </fieldset>
                 <button type="submit" class="round-button">Salvar</button>
             </form>

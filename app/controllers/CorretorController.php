@@ -58,7 +58,43 @@ class CorretorController
 
     public function editar()
     {
+        $corretor = new Corretor();
         $this->autenticarLogin();
+        $this->view('editarCorretor', $corretor->buscarEntityCorretor($_GET['editar']));
+    }
+
+    public function salvarEdicao() {
+        session_start();
+
+        $encriptadorSenha = $this->prepararEncriptador();
+        $corretor = new Corretor();
+
+        if (!empty($_POST['numTelefone']) && ($this->validarNumero($_POST['numTelefone'])
+            || ((strcmp($_POST['tipoTelefone'], "Celular") == 0 && strlen($_POST['numTelefone']) != 11)
+                ||  (strcmp($_POST['tipoTelefone'], "Residencial") == 0 && strlen($_POST['numTelefone']) != 10)))) {
+            $_POST['erro'] = true;
+            $_POST['numTelefone'] = '';
+        } elseif (
+            !empty($_POST['senha']) && !empty($_POST['confirmarSenha'])
+            && strcmp($_POST['senha'], $_POST['confirmarSenha']) != 0
+        ) {
+            $_POST['erro'] = true;
+            $_POST['senha'] = '';
+            $_POST['confirmarSenha'] = '';
+        } else {
+            $corretor->creci = $_POST['creci'];
+            $corretor->senha = $encriptadorSenha->hash($_POST['senha']);
+            if ($corretor->buscarCorretor($encriptadorSenha)) {
+                $_POST['erro'] = true;
+            } else {
+                $corretor->data_nasc = $_POST['dataNascimento'];
+                $corretor->nome = $_POST['nome'];
+                $corretor->telefone = $_POST['numTelefone'];
+                $corretor->email = $_POST['email'];
+                $_POST['validado'] = $corretor->editar($_SESSION['id_corretor']);
+            }
+        }
+
         $this->view('editarCorretor');
     }
 
