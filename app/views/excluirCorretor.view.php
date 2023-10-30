@@ -24,9 +24,9 @@
         </div>
       <?php endif; ?>
       <h1>Excluir Corretor</h1>
-      <form action="/vendedor-excluir" method="POST">
+      <form action="/corretor-excluir" method="POST">
         <fieldset>
-          <label>Creci<br><input type="text" name="creci" value="<?= $_GET['excluir'] ?? ''; ?>" placeholder="000.000.000-00" required disabled></label><br>
+          <label>Creci<br><input type="text" name="creciExcluir" value="<?= $_GET['excluir'] ?? ''; ?>" required readonly></label><br>
         </fieldset>
         <button type="submit" class="round-button">Excluir</button>
       </form>

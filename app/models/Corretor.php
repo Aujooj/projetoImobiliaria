@@ -38,21 +38,21 @@ class Corretor
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function excluir($cpf)
+    public function excluir($creci)
     {
-        $query = $this->bd->prepare("DELETE FROM corretores WHERE cpf = :cpf");
-        $query->bindValue(':cpf', $cpf);
+        $query = $this->bd->prepare("DELETE FROM corretores WHERE creci = :creci");
+        $query->bindValue(':creci', $creci);
         $query->execute();
         return true;
     }
 
-    public function validarCpf($cpf)
+    public function validarCreci($creci)
     {
-        $query = $this->bd->prepare("SELECT cpf FROM corretores");
+        $query = $this->bd->prepare("SELECT creci FROM corretores");
         $query->execute();
         $corretores = $query->fetchAll(PDO::FETCH_ASSOC);
         foreach ($corretores as $corretor) {
-            if (in_array($cpf, array($corretor['cpf']))) {;
+            if (in_array($creci, array($corretor['creci']))) {;
                 return true;
             }
         }
@@ -75,10 +75,10 @@ class Corretor
         return false;
     }
 
-    public function buscarUsuario($cpf)
+    public function buscarUsuario($creci)
     {
-        $query = $this->bd->prepare("SELECT creci FROM corretores WHERE cpf = :cpf");
-        $query->bindValue(':cpf', $cpf);
+        $query = $this->bd->prepare("SELECT creci FROM corretores WHERE creci = :creci");
+        $query->bindValue(':creci', $creci);
         $query->execute();
         $crecis = $query->fetchAll(PDO::FETCH_ASSOC);
         return $crecis[0]['creci'];

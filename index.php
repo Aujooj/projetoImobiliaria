@@ -24,7 +24,7 @@ Router::get('/corretor', 'CorretorController@listar');
 Router::get('/corretor-cadastrar', 'CorretorController@cadastrar');
 Router::post('/corretor-cadastrar', 'CorretorController@validarCadastro');
 Router::get('/corretor-editar', 'CorretorController@editar');
-Router::post('/corretor-editar', 'CorretorController@slvarEdicao');
+Router::post('/corretor-editar', 'CorretorController@salvarEdicao');
 Router::get('/corretor-excluir', 'CorretorController@excluir');
 Router::post('/corretor-excluir', 'CorretorController@realizarExclusao');
 

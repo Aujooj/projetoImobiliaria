@@ -49,9 +49,5 @@ VALUES
 
 INSERT INTO corretores (creci, senha, data_nasc, nome, telefone, email) 
 VALUES 
-('Joao', '$2y$13$7OLpVlvrM.TZyZ7ccnu3N.03ZE2teOeC/QKDKlpTu6UDPddCMmxTW', '2002-03-20', 'João Augusto de Souza Santos', '1228611876', 'jsantos.2021@alunos.utfpr.edu.br'), 
-('Wagner', '$2y$13$wtz3m3cNlDLNOyNQgylM0uSTw1TkE7PNZPAOfqOEz2tKoyij1Tj6O', '1996-11-17', 'Wagner Cordeiro Gomes da Silva', '42980224425', 'wagnercordeiro@alunos.utfpr.edu.br');
-
-UPDATE corretores
-SET creci = '87654321'
-WHERE nome = 'Wagner Cordeiro Gomes da Silva';
+('12345678', '$2y$13$7OLpVlvrM.TZyZ7ccnu3N.03ZE2teOeC/QKDKlpTu6UDPddCMmxTW', '2002-03-20', 'João Augusto de Souza Santos', '1228611876', 'jsantos.2021@alunos.utfpr.edu.br'), 
+('87654321', '$2y$13$wtz3m3cNlDLNOyNQgylM0uSTw1TkE7PNZPAOfqOEz2tKoyij1Tj6O', '1996-11-17', 'Wagner Cordeiro Gomes da Silva', '42980224425', 'wagnercordeiro@alunos.utfpr.edu.br');

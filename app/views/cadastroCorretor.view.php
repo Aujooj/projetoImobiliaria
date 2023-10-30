@@ -26,7 +26,7 @@
                 </div>
             <?php endif; ?>
             <h1>Cadastrar Corretor</h1>
-            <form action="vendedor-cadastrar" method="POST">
+            <form action="corretor-cadastrar" method="POST">
                 <fieldset>
                     <legend>Dados Pessoais</legend>
                     <label>Nome<br><input type="text" name="nome" value="<?= $_POST['nome'] ?? ''; ?>" required></label><br>

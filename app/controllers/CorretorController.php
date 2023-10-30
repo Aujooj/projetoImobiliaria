@@ -31,10 +31,7 @@ class CorretorController
         $encriptadorSenha = $this->prepararEncriptador();
         $corretor = new Corretor();
 
-        if (!BrDoc::cpf($_POST['cpf'])->isValid() || $corretor->validarCpf(BrDoc::cpf($_POST['cpf'])->format()->get())) {
-            $_POST['erro'] = true;
-            $_POST['cpf'] = '';
-        } elseif (!empty($_POST['numTelefone']) && ($this->validarNumero($_POST['numTelefone'])
+        if (!empty($_POST['numTelefone']) && ($this->validarNumero($_POST['numTelefone'])
             || ((strcmp($_POST['tipoTelefone'], "Celular") == 0 && strlen($_POST['numTelefone']) != 11)
                 ||  (strcmp($_POST['tipoTelefone'], "Residencial") == 0 && strlen($_POST['numTelefone']) != 10)))) {
             $_POST['erro'] = true;
@@ -47,9 +44,8 @@ class CorretorController
             $_POST['senha'] = '';
             $_POST['confirmarSenha'] = '';
         } else {
-            $corretor->usuario = $_POST['usuario'];
+            $corretor->creci = $_POST['creci'];
             $corretor->senha = $encriptadorSenha->hash($_POST['senha']);
-            $corretor->cpf = BrDoc::cpf($_POST['cpf'])->format()->get();
             $corretor->data_nasc = $_POST['dataNascimento'];
             $corretor->nome = $_POST['nome'];
             $corretor->telefone = $_POST['numTelefone'];
@@ -78,13 +74,11 @@ class CorretorController
 
         session_start();
 
-        if (
-            BrDoc::cpf($_POST['cpfCorretor'])->isValid()
-            && $corretor->validarCpf((BrDoc::cpf($_POST['cpfCorretor'])->format()->get()))
-            && $corretor->buscarUsuario($_POST['cpfCorretor']) != $_SESSION['usuario']
+        if ($corretor->validarCreci($_POST['creciExcluir'])
+            && $corretor->buscarUsuario($_POST['creciExcluir']) != $_SESSION['creci']
         ) {
 
-            $_POST['validado'] = $corretor->excluir((BrDoc::cpf($_POST['cpfCorretor'])->format()->get()));
+            $_POST['validado'] = $corretor->excluir($_POST['creciExcluir']);
         } else {
             $_POST['erro'] = true;
         }
