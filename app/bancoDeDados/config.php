@@ -4,5 +4,5 @@ return [
     'host'    => 'localhost',
     'database'  => 'Estelar',
     'username'  => 'root',
-    'password'  => 'alte753jhojho'
+    'password'  => ''
 ];
