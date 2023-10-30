@@ -1,0 +1,58 @@
+.centraliza{
+    align-content: center;
+}
+
+body {
+	background-color: #f2f2f2;
+}
+
+.container {
+	height: 100%;
+}
+
+.card {
+    max-width: 400px;
+    width: 100%;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-title {
+    margin-top: 0;
+}
+
+.form-control {
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn-primary:hover {
+    background-color: #3e8e41;
+}
+
+fieldset {
+    max-width:500px;
+    padding:12px;	
+}
+
+#aviso-erro {
+    background: #FB4B4E; 
+    padding: 15px; 
+    margin-bottom: 24px; 
+    color: white;
+}
+
+#aviso-acerto {
+    background: #5FBF06; 
+    padding: 15px; 
+    margin-bottom: 24px; 
+    color: white;
+}

@@ -1,0 +1,25 @@
+{
+    "name": "joaoaugusto/projeto-web",
+    "description": "Projeto Web - Trabalho 2. eCommerce de venda de eletrônicos",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "João Augusto de Souza Santos", 
+            "email": "jsantos.2021@alunos.utfpr.edu.br"
+        },
+        {
+            "name": "Wagner Cordeiro Gomes da Silva", 
+            "email": "wagnercordeiro@alunos.utfpr.edu.br"
+        }
+    ],
+    "autoload": {
+        "classmap": ["./"]
+    },
+    "require": {
+        "pecee/simple-router": "5.3.0.5",
+        "jeffersoncechinel/php-brdocs": "^1.0",
+        "nesbot/carbon": "^2.66",
+        "symfony/password-hasher": "^6.2"
+    }
+}

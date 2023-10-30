@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.item {
+  flex: 1 0 20%;
+  max-width: 20%;
+  min-width: 200px;
+  margin: 10px;
+  border: black solid 1px;
+}
+
+th, td {
+  border: 1px solid gray;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding: 5px;
+  text-align: center;
+}
+
+.button-list {
+  padding: 5px;
+  border: none;
+  background: none;
+}
+
+.button-list:hover {
+  border-radius: 100%;
+  background-color: #dbdbdb;
+}
+
+.round-button {
+  display: inline-block;
+  background-color: #f8b739;
+  color: #fff;
+  border: none;
+  border-radius: 50px; /* Ajuste esse valor para controlar o grau de arredondamento */
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.round-button:hover {
+  background-color: #ffcc00; /* Cor de destaque quando o botão é hover (passagem do mouse) */
+}

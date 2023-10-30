@@ -1,0 +1,69 @@
+################     TechStore     ################
+
+O software tem como finalidade o controle de vendas que conta com cadastro, busca e exclusão de produtos, clientes e vendedores.
+
+################ Integrantes: ----------------------------------------------------------------------------
+
+ - João Augusto de Souza Santos - Desenvolvimento;
+ - Wagner Cordeiro Gomes da Silva - Desenvolvimento.
+
+################ Dependências ----------------------------------------------------------------------------
+
+1 Será necessário a utilização de um ambiente de desenvolvimento. Sugestão:'Virtual Studio Code'(VSCode),  caso não tenha instalado acesse 'https://code.visualstudio.com/download'
+
+2 Será necessário a utilização do ambiente de desenvolvimento 'XAMPP'verões 8.0.28, 8.1.17 & 8.2.4,  caso não tenha instalado acesse 'https://www.apachefriends.org/pt_br/download.html'
+
+3 Será necessário a utilização do gerenciador de dependencias 'Composer' mais recente, caso não tenha instalado acesse 'https://getcomposer.org/download/';
+
+4 Aplicação utiliza as Packages: pecee/simple-router, nesbot/carbon, jeffersoncechinel/php-brdocs e symfony/password-hasher
+
+################ Instalação ------------------------------------------------------------------------------
+
+1° Extraia o arquivo projetoWeb.zip;
+
+2° Coloque a pasta extraída na pasta 'htdocs' dento da pasta de instalação do XAMPP 'C:\xampp\htdocs';
+
+3° Abra o Xampp e clique em start no painel de controle Apache e MySQL;
+
+4°  Crie o banco de dados através dos arquivo 'database.sql', compiando os comando das implementação das entidades do banco;
+
+5° Será necessário que acesse o arquivo 'config.php', abra o arquivo e complete os campos 'host', 'user' e 'senha' com o host do seu banco (nativamente 'localhost'), o usuário (nativamente 'root') e a senha (caso não tenha deixar em branco);
+Como no exemplo:
+
+    'driver'    => 'mysql',
+    'host'    => 'localhost',
+    'database'  => 'TechStore',
+    'username'  => 'root',
+    'password'  => ''
+
+6° Abra a pasta do projeto no 'Virtual Studio Code'(VSCode) e no terminal execute as seguintes linhas de comando: 
+- composer require pecee/simple-router => para rotas entre os arquivos em MVC;
+- composer require nesbot/carbon => para formatação de datas na aplicação;
+- composer require jeffersoncechinel/php-brdocs => para validação e formatação de documentos CPF;
+- composer require symfony/password-hasher  => para a criptografar as senhas dos usuários cadastrados;
+
+7° Inicie um servidor web local utilizando o PHP embutido com comando 'php -S localhost:8080'(sem aspas) no terminal do VSCode. 
+
+  
+8°  Abra o navegador na url : localhost:8080/
+
+################ Exemplos de Uso -------------------------------------------------------------------------
+
+ - Login;
+ - Cadastro de produtos, clientes e vendedores, liste-os e/ou exclua-os;
+ - Carrinho (ainda não implementado);
+ - Sistema de venda.
+
+################ Créditos --------------------------------------------------------------------------------
+
+Este projeto utiliza o framework Bootstrap para facilitar o desenvolvimento front-end. Agradecemos à equipe do Bootstrap por fornecer uma ferramenta poderosa e de código aberto.
+
+- Nome: Bootstrap
+- Site: [https://getbootstrap.com](https://getbootstrap.com)
+- Link da Framework Utilizada: https://colorlib.com/wp/template/bootstrap-sidebar-01/
+
+################ Peculiaridades --------------------------------------------------------------------------
+
+  - O catálogo de produtos na tela inicial é meramente para preenchimento do espaço, ele está gerando randomicamente os nomes, códigos, tamanhos e preços de cada item;
+  - O Carrinho de compras ainda não foi implementado;
+  - Para realizar o primeiro login no site utilize os usuários: João ou Wagner, com as respectivas senhas: 456 ou 789. Caso deseje, você também poderá cadastrar um vendedor e utilizar o usuário e senha inseridos nele para seu realizar login.
