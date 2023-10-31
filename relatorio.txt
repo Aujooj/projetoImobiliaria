@@ -66,4 +66,4 @@ Este projeto utiliza o framework Bootstrap para facilitar o desenvolvimento fron
 
   - O catálogo de produtos na tela inicial é meramente para preenchimento do espaço, ele está gerando randomicamente os nomes, códigos, tamanhos e preços de cada item;
   - O Carrinho de compras ainda não foi implementado;
-  - Para realizar o primeiro login no site utilize os usuários: João ou Wagner, com as respectivas senhas: 456 ou 789. Caso deseje, você também poderá cadastrar um vendedor e utilizar o usuário e senha inseridos nele para seu realizar login.
+  - Para realizar o primeiro login no site utilize os usuários: J0123, J4567, J8910 ou J1112; com as respectivas senhas: 123, 456, 456 ou 789. Caso deseje, você também poderá cadastrar um vendedor e utilizar o usuário e senha inseridos nele para seu realizar login.
