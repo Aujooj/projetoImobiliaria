@@ -12,7 +12,7 @@
 </head>
 <div class="wrapper d-flex align-items-stretch">
     <div id="content" class="p-4 p-md-5">
-        <a href="/home"><img src="../../../public/layout/images/logo.jpg" class="img logo rounded-circle mb-5" style="width: 120px; height: 120px;"></a>
+        <h1>Erro 404</h1>
         <h3>Desculpe! Parece que esta página não existe!</h3>
         <p>Verifique se o endereço do site está escrito corretamente.<br>
             Ou vá para nossa <a href="/home">página inicial</a>.</p>
