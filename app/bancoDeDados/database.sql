@@ -1,4 +1,6 @@
 CREATE DATABASE Estelar;
+-- ---------------------------------------------------------------------------------------------------------
+-- Criação das tabelas
 
 CREATE TABLE corretores (
   id_corretor INT AUTO_INCREMENT PRIMARY KEY,
@@ -12,9 +14,9 @@ CREATE TABLE corretores (
 
 CREATE TABLE clientes(
   id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL,
   cpf VARCHAR(14) NOT NULL,
   data_nasc DATE NOT NULL,
-  nome VARCHAR(100) NOT NULL,
   telefone VARCHAR(20) NOT NULL,
   email VARCHAR(100) NOT NULL,
   cep INTEGER NOT NULL,
@@ -25,27 +27,36 @@ CREATE TABLE clientes(
   estado VARCHAR(2)
 );
 
-CREATE TABLE produto (
-  cod_produto INTEGER AUTO_INCREMENT PRIMARY KEY,
-  tipo VARCHAR(10),
-  marca VARCHAR(20),
-  armazenamento INTEGER,
-  ram INTEGER,
-  descricao VARCHAR(100),
-  preco DECIMAL(10),
-  quantidade INTEGER,
-  processador VARCHAR(20)
+CREATE TABLE imoveis (
+  id_produto INTEGER AUTO_INCREMENT PRIMARY KEY,
+  tipo ENUM('Apartamento', 'Casa Residencial', 'Chácara', 'Comercial', 'Condomínio', 'Terreno'),
+  cep INTEGER NOT NULL,
+  rua VARCHAR(100),
+  bairro VARCHAR (50),
+  numero INTEGER,
+  cidade VARCHAR(50),
+  estado VARCHAR(2),
+  valor DOUBLE(11, 2),
+  condominio BOOLEAN,
+  area_total INT,
+  dormitorios INT,
+  banheiros INT,
+  garagem INT,
+  id_contrato INT NOT NULL FOREIGN KEY REFERENCES contratos(id_contrato),
+  proprietario INT NOT NULL FOREIGN KEY REFERENCES clientes(id_cliente)
 );
 
-INSERT INTO clientes (cpf, data_nasc, nome, telefone, email, cep, rua, bairro, numero, cidade, estado)
-VALUES 
-('477.686.585-82', '1980-10-30', 'Cristiane Figueiredo Silvino', '9122947039', 'cristiane.silvino@gmail.com', '66075420', 'Travessa Liberato de Castro', 'Guamá', '619', 'Belém', 'PA'),
-('241.833.871-16', '2009-05-04', 'Osvaldo Barbosa Borner', '92971787280', 'osvaldo.borner@gmail.com', '69099250', 'Rua Indiana', 'Novo Aleixo', '515', 'Manaus', 'AM');
+CREATE TABLE contratos (
+  id_contrato INTEGER AUTO_INCREMENT PRIMARY KEY,
+  tipo ENUM('Locação', 'Venda'),
+  data_inicial DATETIME,
+  data_final DATETIME,
+  inquilino INT NOT NULL FOREIGN KEY REFERENCES clientes(id_cliente),
+  id_imovel INT NOT NULL FOREIGN KEY REFERENCES imovel(id_imovel)
+);
 
-INSERT INTO produto (tipo, marca, armazenamento, ram, descricao, preco, quantidade, processador) 
-VALUES 
-('Celular', 'Motorola', 128, 4, 'Moto g42', 1079.10, 5, 'Snapdragon 680'),
-('Tablet', 'Samsung', 128, 4, 'Galaxy Tab S7 FE ', 3799, 2, 'Kryo 570');
+-- ---------------------------------------------------------------------------------------------------------
+-- Inserção de dados
 
 INSERT INTO corretores (creci, senha, data_nasc, nome, telefone, email) 
 VALUES 

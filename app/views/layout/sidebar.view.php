@@ -13,8 +13,8 @@
   <div class="wrapper d-flex align-items-stretch">
     <nav id="sidebar">
       <div class="p-4 pt-5">
-        <a href="/home" class="img logo rounded-circle mb-5" style="background-image: url(../../public/layout/images/logo.jpg);"></a>
-        <p>Bem vindo: <?php echo $_SESSION['creci']; ?></p>
+        <a href="/home" class="img logo mb-5" style="background-image: url(../../public/IMG/logo.png); border-radius: 35px;"></a>
+        <p>Creci: <?php echo $_SESSION['creci']; ?></p>
         <ul class="list-unstyled components mb-5">
           <li>
             <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Produtos</a>
