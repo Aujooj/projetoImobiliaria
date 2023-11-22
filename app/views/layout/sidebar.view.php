@@ -17,18 +17,8 @@
         <p>Creci: <?php echo $_SESSION['creci']; ?></p>
         <ul class="list-unstyled components mb-5">
           <li>
-            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Produtos</a>
-            <ul class="collapse list-unstyled" id="homeSubmenu">
-              <li>
-                <a href="produto-listar">Listar</a>
-              </li>
-              <li>
-                <a href="produto-cadastrar">Cadastrar</a>
-              </li>
-              <li>
-                <a href="produto-excluir">Excluir</a>
-              </li>
-            </ul>
+          <li>
+            <a href="imoveis" aria-expanded="false" class="dropdown-toggle">Imóveis</a>
           </li>
 
           <li>

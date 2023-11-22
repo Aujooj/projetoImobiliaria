@@ -8,11 +8,11 @@ Router::post('/', 'CorretorController@validacaoLogin');
 Router::get('/home', 'HomeController@home');
 Router::get('/sair', 'HomeController@sair');
 
-Router::get('/produto-listar', 'ProdutoController@listar');
-Router::get('/produto-cadastrar', 'ProdutoController@cadastrar');
-Router::post('/produto-cadastrar', 'ProdutoController@realizarCadastro');
-Router::get('/produto-excluir', 'ProdutoController@excluir');
-Router::post('/produto-excluir', 'ProdutoController@realizarExclusao');
+Router::get('/imoveis', 'ImovelController@listar');
+Router::get('/imovel-cadastrar', 'ImovelController@cadastrar');
+Router::post('/imovel-cadastrar', 'ImovelController@realizarCadastro');
+Router::get('/imovel-excluir', 'ImovelController@excluir');
+Router::post('/imovel-excluir', 'ImovelController@realizarExclusao');
 
 Router::get('/clientes', 'ClienteController@listar');
 Router::get('/cliente-cadastrar', 'ClienteController@cadastrar');

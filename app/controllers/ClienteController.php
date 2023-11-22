@@ -76,11 +76,9 @@ class ClienteController
         } elseif (!empty($_POST['numTelefone']) && ($this->validarNumero($_POST['numTelefone'])
             || ((strcmp($_POST['tipoTelefone'], "Celular") == 0 && strlen($_POST['numTelefone']) != 11)
                 ||  (strcmp($_POST['tipoTelefone'], "Residencial") == 0 && strlen($_POST['numTelefone']) != 10)))) {
-                    echo'2';
                     $_POST['erro'] = true;
             $_POST['numTelefone'] = '';
         } elseif (!empty($_POST['cep']) && ($this->validarNumero($_POST['cep']) || strlen($_POST['cep']) != 8)) {
-            echo'3';
             $_POST['erro'] = true;
             $_POST['cep'] = '';
         } else {
