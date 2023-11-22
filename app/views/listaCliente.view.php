@@ -3,7 +3,7 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="../../public/css/home.css">
-    <title>Listagem de clientes</title>
+    <title>Clientes</title>
     <meta charset="UTF-8">
 </head>
 
@@ -11,7 +11,8 @@
     <div class="wrapper d-flex align-items-stretch">
         <?php require("layout/sidebar.view.php"); ?>
         <div id="content" class="p-4 p-md-5">
-            <h1>Listagem de clientes</h1>
+            <h1>Clientes</h1>
+            <a href="/cliente-cadastrar" class="round-button">+</a>
             <?php if (sizeof($dados) == 0) : ?>
                 <p>Não há clientes cadastrados!</p>
             <?php else : ?>
@@ -29,6 +30,8 @@
                             <th>Nº</th>
                             <th>Cidade</th>
                             <th>Estado</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -45,6 +48,20 @@
                                 <td><?= $cliente->numero ?></td>
                                 <td><?= $cliente->cidade ?></td>
                                 <td><?= $cliente->estado ?></td>
+                                <td>
+                                    <form action="/cliente-editar" method="GET">
+                                    <button class="button-list" type="submit" name="editar" value="<?= $cliente->cpf ?>">
+                                        <img src="../../public/IMG/pencil.png" width="20" height="20">
+                                    </button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="/cliente-excluir" method="GET">
+                                    <button class="button-list" type="submit" name="excluir" value="<?= $cliente->cpf ?>">
+                                        <img src="../../public/IMG/trash.png" width="20" height="20">
+                                    </button>
+                                    </form>  
+                                </td>
 
                             </tr>
                         <?php endforeach; ?>

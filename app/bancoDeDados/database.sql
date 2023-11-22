@@ -66,3 +66,6 @@ INSERT INTO corretores (creci, senha, data_nasc, nome, telefone, email) VALUES
 ('J4567', '$2y$13$7OLpVlvrM.TZyZ7ccnu3N.03ZE2teOeC/QKDKlpTu6UDPddCMmxTW', '2002-03-20', 'João Augusto', '1228611876', 'jsantos.2021@alunos.utfpr.edu.br'),
 ('J8910', '$2y$13$QPgBc6cFl9bY6bqPOTzcP.77.qVqcrXQeCI7RqsS.CyqYjwyCoMhC', '2002-03-23', 'Luis Nathan', '42928231876', 'roncolato@alunos.utfpr.edu.br'),
 ('J1112', '$2y$13$wtz3m3cNlDLNOyNQgylM0uSTw1TkE7PNZPAOfqOEz2tKoyij1Tj6O', '1996-11-17', 'Wagner Cordeiro', '42980224425', 'wagnercordeiro@alunos.utfpr.edu.br');
+
+INSERT INTO clientes (nome, cpf, data_nasc, telefone, email, cep, rua, bairro, numero, cidade, estado) VALUES 
+("nome", "272.038.660-09", "2002-12-12", '42980224425', 'wagnercordeiro@alunos.utfpr.edu.br', 122, "rua", "bairro", 12, "cidade", "PR");

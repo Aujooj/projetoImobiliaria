@@ -32,18 +32,7 @@
           </li>
 
           <li>
-            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Clientes</a>
-            <ul class="collapse list-unstyled" id="pageSubmenu">
-              <li>
-                <a href="cliente-listar">Listar</a>
-              </li>
-              <li>
-                <a href="cliente-cadastrar">Cadastrar</a>
-              </li>
-              <li>
-                <a href="cliente-excluir">Excluir</a>
-              </li>
-            </ul>
+            <a href="clientes" aria-expanded="false" class="dropdown-toggle">Clientes</a>
           </li>
           <li>
             <a href="corretor" aria-expanded="false" class="dropdown-toggle">Corretores</a>

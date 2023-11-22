@@ -4,7 +4,9 @@ O software tem como finalidade o controle de vendas que conta com cadastro, busc
 
 ################ Integrantes: ----------------------------------------------------------------------------
 
+ - Gabriel Assunção Brunhara - Desenvolvimento;
  - João Augusto de Souza Santos - Desenvolvimento;
+ - Luis Nathan Sales Roncolato - Desenvolvimento;
  - Wagner Cordeiro Gomes da Silva - Desenvolvimento.
 
 ################ Dependências ----------------------------------------------------------------------------

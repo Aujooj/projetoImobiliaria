@@ -26,7 +26,7 @@
       <h1>Excluir Cliente</h1>
       <form action="/cliente-excluir" method="POST">
         <fieldset>
-          <label>Informe o CPF do cliente<br><input type="text" name="cpfCliente" value="<?= $_POST['cpfCliente'] ?? ''; ?>" placeholder="000.000.000-00" required></label><br>
+          <label>CPF do cliente<br><input type="text" name="cpfExcluir" value="<?= $_GET['excluir'] ?? ''; ?>" required readonly></label><br>
         </fieldset>
         <button type="submit">Excluir</button>
       </form>

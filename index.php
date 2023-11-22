@@ -14,9 +14,11 @@ Router::post('/produto-cadastrar', 'ProdutoController@realizarCadastro');
 Router::get('/produto-excluir', 'ProdutoController@excluir');
 Router::post('/produto-excluir', 'ProdutoController@realizarExclusao');
 
-Router::get('/cliente-listar', 'ClienteController@listar');
+Router::get('/clientes', 'ClienteController@listar');
 Router::get('/cliente-cadastrar', 'ClienteController@cadastrar');
 Router::post('/cliente-cadastrar', 'ClienteController@validarCadastro');
+Router::get('/cliente-editar', 'ClienteController@editar');
+Router::post('/cliente-editar', 'ClienteController@salvarEdicao');
 Router::get('/cliente-excluir', 'ClienteController@excluir');
 Router::post('/cliente-excluir', 'ClienteController@realizarExclusao');
 

@@ -44,6 +44,26 @@ class Cliente
         return true;
     }
 
+    public function editar($id_cliente) {
+        $query = $this->bd->prepare("UPDATE clientes SET cpf = :cpf, data_nasc = :data_nasc, nome = :nome, telefone = :telefone, email = :email, cep = :cep, rua = :rua, bairro = :bairro, numero = :numero, cidade = :cidade, estado = :estado WHERE id_cliente = :id_cliente");
+
+        $query->bindValue(':cpf', $this->cpf);
+        $query->bindValue(':data_nasc', $this->data_nasc);
+        $query->bindValue(':nome', $this->nome);
+        $query->bindValue(':telefone', $this->telefone);
+        $query->bindValue(':email', $this->email);
+        $query->bindValue(':cep', $this->cep);
+        $query->bindValue(':rua', $this->rua);
+        $query->bindValue(':bairro', $this->bairro);
+        $query->bindValue(':numero', $this->numero);
+        $query->bindValue(':cidade', $this->cidade);
+        $query->bindValue(':estado', $this->estado);
+        $query->bindValue(':id_cliente', $id_cliente);
+
+        $query->execute();
+        return true;
+    }
+
     public function listar()
     {
         $query = $this->bd->prepare("SELECT * FROM clientes");
@@ -70,6 +90,15 @@ class Cliente
             }
         }
         return false;
+    }
+
+    public function buscarEntityCliente($cpf)
+    {
+        $query = $this->bd->prepare("SELECT * FROM clientes WHERE cpf = :cpf");
+        $query->bindValue(':cpf', $cpf);
+        $query->execute();
+        $cliente = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $cliente;
     }
 
     public function __get($propriedade)

@@ -58,6 +58,50 @@ class ClienteController
         $this->view('cadastroCliente');
     }
 
+    public function editar()
+    {
+        $cliente = new Cliente();
+        $this->autenticarLogin();
+        $this->view('editarCliente', $cliente->buscarEntityCliente($_GET['editar']));
+    }
+
+    public function salvarEdicao() {
+        session_start();
+
+        $cliente = new Cliente();
+        if (!BrDoc::cpf($_POST['cpf'])->isValid() || !$cliente->validarCpf(BrDoc::cpf($_POST['cpf'])->format()->get())) {
+            
+            $_POST['erro'] = true;
+            $_POST['cpf'] = '';
+        } elseif (!empty($_POST['numTelefone']) && ($this->validarNumero($_POST['numTelefone'])
+            || ((strcmp($_POST['tipoTelefone'], "Celular") == 0 && strlen($_POST['numTelefone']) != 11)
+                ||  (strcmp($_POST['tipoTelefone'], "Residencial") == 0 && strlen($_POST['numTelefone']) != 10)))) {
+                    echo'2';
+                    $_POST['erro'] = true;
+            $_POST['numTelefone'] = '';
+        } elseif (!empty($_POST['cep']) && ($this->validarNumero($_POST['cep']) || strlen($_POST['cep']) != 8)) {
+            echo'3';
+            $_POST['erro'] = true;
+            $_POST['cep'] = '';
+        } else {
+            $cliente->cpf = BrDoc::cpf($_POST['cpf'])->format()->get();
+            $cliente->data_nasc = $_POST['dataNascimento'];
+            $cliente->nome = $_POST['nome'];
+            $cliente->telefone = $_POST['numTelefone'];
+            $cliente->email = $_POST['email'];
+            $cliente->cep = $_POST['cep'];
+            $cliente->rua = $_POST['rua'];
+            $cliente->bairro = $_POST['bairro'];
+            $cliente->numero = $_POST['numEndereco'];
+            $cliente->cidade = $_POST['cidade'];
+            $cliente->estado = $_POST['estado'];
+            $_POST['validado'] = $cliente->editar($_SESSION['id_cliente']);
+            
+        }
+
+        $this->view('editarCorretor');
+    }
+
     public function excluir()
     {
         $this->autenticarLogin();
@@ -69,10 +113,10 @@ class ClienteController
         session_start();
         $cliente = new Cliente();
         if (
-            BrDoc::cpf($_POST['cpfCliente'])->isValid()
-            && $cliente->validarCpf((BrDoc::cpf($_POST['cpfCliente'])->format()->get()))
+            BrDoc::cpf($_POST['cpfExcluir'])->isValid()
+            && $cliente->validarCpf((BrDoc::cpf($_POST['cpfExcluir'])->format()->get()))
         ) {
-            $_POST['validado'] = $cliente->excluir((BrDoc::cpf($_POST['cpfCliente'])->format()->get()));
+            $_POST['validado'] = $cliente->excluir((BrDoc::cpf($_POST['cpfExcluir'])->format()->get()));
         } else {
             $_POST['erro'] = true;
         }
