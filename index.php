@@ -11,6 +11,8 @@ Router::get('/sair', 'HomeController@sair');
 Router::get('/imoveis', 'ImovelController@listar');
 Router::get('/imovel-cadastrar', 'ImovelController@cadastrar');
 Router::post('/imovel-cadastrar', 'ImovelController@realizarCadastro');
+Router::get('/imovel-editar', 'ImovelController@editar');
+Router::post('/imovel-editar', 'ImovelController@salvarEdicao');
 Router::get('/imovel-excluir', 'ImovelController@excluir');
 Router::post('/imovel-excluir', 'ImovelController@realizarExclusao');
 

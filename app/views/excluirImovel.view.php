@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="../../public/css/style.css">
   <link rel="stylesheet" type="text/css" href="../../public/css/home.css">
-  <title>Exclusão de produtos</title>
+  <title>Exclusão de imóvel</title>
 </head>
 
 <body>
@@ -16,17 +16,17 @@
     <div id="content" class="p-4 p-md-5">
       <?php if ($_POST['erro'] ?? false) : ?>
         <div id="aviso-erro">
-          Código incorreto! Tente novamente.
+          Id incorreto! Tente novamente.
         </div>
       <?php elseif ($_POST['validado'] ?? false) : ?>
         <div id="aviso-acerto">
           Exclusão realizada com sucesso.
         </div>
       <?php endif; ?>
-      <h1>Excluir Produto</h1>
-      <form action="/produto-excluir" method="POST">
+      <h1>Excluir Imóvel</h1>
+      <form action="/imovel-excluir" method="POST">
         <fieldset>
-          <label>Informe o Código do produto<br><input type="number" name="codProduto" value="<?= $_POST['codProduto'] ?? '' ?>" required></label><br>
+          <label>Id do imóvel<br><input type="text" name="imovelExcluir" value="<?= $_GET['excluir'] ?? '' ?>" required readonly></label><br>
         </fieldset>
         <button type="submit">Excluir</button>
       </form>

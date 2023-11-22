@@ -38,6 +38,7 @@ CREATE TABLE imoveis (
   cidade VARCHAR(50),
   estado VARCHAR(2),
   valor DOUBLE(11, 2),
+  foto TEXT,
   condominio BOOLEAN,
   area_total INT,
   dormitorios INT,
@@ -70,24 +71,5 @@ INSERT INTO corretores (creci, senha, data_nasc, nome, telefone, email) VALUES
 INSERT INTO clientes (nome, cpf, data_nasc, telefone, email, cep, rua, bairro, numero, cidade, estado) VALUES 
 ("nome", "272.038.660-09", "2002-12-12", '42980224425', 'wagnercordeiro@alunos.utfpr.edu.br', 122, "rua", "bairro", 12, "cidade", "PR");
 
-INSERT INTO imoveis (tipo, cep, rua, bairro, numero, cidade, estado, valor, condominio, area_total, dormitorios, banheiros, garagem, proprietario) VALUES 
-('Casa Residencial', 122, "rua", "bairro", 12, "cidade", "PR", 300.05, 1, 400, 3, 2, 1, 4);
-
-CREATE TABLE imoveis (
-  id_imovel INTEGER AUTO_INCREMENT PRIMARY KEY,
-  tipo ENUM('Apartamento', 'Casa Residencial', 'Chácara', 'Comercial', 'Condomínio', 'Terreno'),
-  cep INTEGER NOT NULL,
-  rua VARCHAR(100),
-  bairro VARCHAR (50),
-  numero INTEGER,
-  cidade VARCHAR(50),
-  estado VARCHAR(2),
-  valor DOUBLE(11, 2),
-  condominio BOOLEAN,
-  area_total INT,
-  dormitorios INT,
-  banheiros INT,
-  garagem INT,
-  proprietario INT NOT NULL,
-  FOREIGN KEY (proprietario) REFERENCES clientes(id_cliente)
-);
+INSERT INTO imoveis (tipo, cep, rua, bairro, numero, cidade, estado, valor, foto, condominio, area_total, dormitorios, banheiros, garagem, proprietario) VALUES 
+('Casa Residencial', 122, "rua", "bairro", 12, "cidade", "PR", 300.05, "https://media.gazetadopovo.com.br/2022/07/12110820/comprar-imovel-bigstock-960x540.jpg", 1, 400, 3, 2, 1, 4);
