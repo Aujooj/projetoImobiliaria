@@ -19,7 +19,7 @@
             <img src="public/IMG/logo.png" class="card-img-top" alt="Logo da empresa Estelar"">
             <div class="card-body">
                 <h2 class="card-title text-center mb-4">Login</h2>
-                <form action="/" method="POST">
+                <form action="/login" method="POST">
 
                     <?php if ($_POST['erro'] ?? false) : ?>
                         <div style="background: #FB4B4E; padding: 15px; margin-bottom: 24px; color: white;">

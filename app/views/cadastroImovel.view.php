@@ -23,8 +23,8 @@
       <form action="imovel-cadastrar" method="POST">
         <fieldset>
           <legend>Informações</legend>
-          <label>Tipo<br>
-              <select name="tipo" required>
+          <label>Tipo de Imóvel<br>
+              <select name="tipo_imovel" required>
                 <option value="" disabled selected>Escolha uma opção</option>
                 <option value="Apartamento">Apartamento</option>
                 <option value="Casa Residencial">Casa Residencial</option>
@@ -32,6 +32,14 @@
                 <option value="Comercial">Comercial</option>
                 <option value="Condomínio">Condomínio</option>
                 <option value="Terreno">Terreno</option>
+              </select>
+          </label><br>
+          <label>Tipo de contrato<br>
+              <select name="tipo_contrato" required>
+                <option value="" disabled selected>Escolha uma opção</option>
+                <option value="Locação">Locação</option>
+                <option value="Venda">Venda</option>
+                <option value="Locação/Venda">Locação/Venda</option>
               </select>
           </label><br>
           <label>Valor<br><input type="text" name="valor" maxlength="11" required></label><br>

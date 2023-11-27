@@ -14,8 +14,12 @@
     <nav id="sidebar">
       <div class="p-4 pt-5">
         <a href="/home" class="img logo mb-5" style="background-image: url(../../public/IMG/logo.png); border-radius: 35px;"></a>
+        <?php $logado = $_SESSION['logado'] ?? false;?>
+        <?php if($logado):?>
         <p>Creci: <?php echo $_SESSION['creci']; ?></p>
+        <?php endif; ?>
         <ul class="list-unstyled components mb-5">
+          <?php if($logado):?>
           <li>
           <li>
             <a href="imoveis" aria-expanded="false" class="dropdown-toggle">Imóveis</a>
@@ -29,8 +33,21 @@
           </li>
 
           <li>
+            <a href="contratos" aria-expanded="false" class="dropdown-toggle">Contratos</a>
+          </li>
+
+          <li>
+            <a href="visitas" aria-expanded="false" class="dropdown-toggle">Visitas</a>
+          </li>
+
+          <li>
             <a href="/sair">Sair</a>
           </li>
+          <?php else:?>
+            <li>
+              <a href="login" aria-expanded="false" class="dropdown-toggle">Login</a>
+            </li>
+          <?php endif; ?>
         </ul>
       </div>
     </nav>

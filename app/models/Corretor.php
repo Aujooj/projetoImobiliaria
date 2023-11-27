@@ -1,5 +1,5 @@
 <?php
-require('./app/bancoDeDados/Conexao.php');
+require_once('./app/bancoDeDados/Conexao.php');
 class Corretor
 {
 
@@ -102,6 +102,24 @@ class Corretor
     public function buscarEntityCorretor($creci)
     {
         $query = $this->bd->prepare("SELECT * FROM corretores WHERE creci = :creci");
+        $query->bindValue(':creci', $creci);
+        $query->execute();
+        $corretor = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $corretor;
+    }
+
+    public function buscarEntityCorretoriD($id)
+    {
+        $query = $this->bd->prepare("SELECT * FROM corretores WHERE id_corretor = :id_corretor");
+        $query->bindValue(':id_corretor', $id);
+        $query->execute();
+        $corretor = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $corretor;
+    }
+
+    public function buscarIdCorretor($creci)
+    {
+        $query = $this->bd->prepare("SELECT id_corretor FROM corretores WHERE creci = :creci");
         $query->bindValue(':creci', $creci);
         $query->execute();
         $corretor = $query->fetchAll(PDO::FETCH_ASSOC);

@@ -3,8 +3,9 @@ require 'vendor/autoload.php';
 
 use Pecee\SimpleRouter\SimpleRouter as Router;
 
-Router::get('/', 'HomeController@index');
-Router::post('/', 'CorretorController@validacaoLogin');
+Router::get('/', 'HomeController@paginainIcial');
+Router::get('/login', 'HomeController@index');
+Router::post('/login', 'CorretorController@validacaoLogin');
 Router::get('/home', 'HomeController@home');
 Router::get('/sair', 'HomeController@sair');
 
@@ -15,6 +16,7 @@ Router::get('/imovel-editar', 'ImovelController@editar');
 Router::post('/imovel-editar', 'ImovelController@salvarEdicao');
 Router::get('/imovel-excluir', 'ImovelController@excluir');
 Router::post('/imovel-excluir', 'ImovelController@realizarExclusao');
+Router::get('/imovel/{id}', 'ImovelController@verDetalhes');
 
 Router::get('/clientes', 'ClienteController@listar');
 Router::get('/cliente-cadastrar', 'ClienteController@cadastrar');
@@ -31,6 +33,17 @@ Router::get('/corretor-editar', 'CorretorController@editar');
 Router::post('/corretor-editar', 'CorretorController@salvarEdicao');
 Router::get('/corretor-excluir', 'CorretorController@excluir');
 Router::post('/corretor-excluir', 'CorretorController@realizarExclusao');
+
+Router::get('/contratos', 'ContratoController@listar');
+Router::get('/contrato-cadastrar/{id}', 'ContratoController@cadastrar');
+Router::post('/contrato-cadastrar', 'ContratoController@validarCadastro');
+Router::post('/contrato-assinar', 'ContratoController@assinar');
+
+Router::get('/visitas', 'VisitaController@listar');
+Router::get('/visita-cadastrar/{id}', 'VisitaController@cadastrar');
+Router::post('/visita-cadastrar', 'VisitaController@validarCadastro');
+Router::get('/visita-devolver/{id}', 'VisitaController@devolver');
+
 
 try {
     Router::start();

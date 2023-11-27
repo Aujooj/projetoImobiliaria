@@ -1,5 +1,5 @@
 <?php
-require('./app/bancoDeDados/Conexao.php');
+require_once('./app/bancoDeDados/Conexao.php');
 class Cliente
 {
     private $cpf;
@@ -96,6 +96,15 @@ class Cliente
     {
         $query = $this->bd->prepare("SELECT * FROM clientes WHERE cpf = :cpf");
         $query->bindValue(':cpf', $cpf);
+        $query->execute();
+        $cliente = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $cliente;
+    }
+
+    public function buscarEntityClienteId($id)
+    {
+        $query = $this->bd->prepare("SELECT * FROM clientes WHERE id_cliente = :id");
+        $query->bindValue(':id', $id);
         $query->execute();
         $cliente = $query->fetchAll(PDO::FETCH_ASSOC);
         return $cliente;

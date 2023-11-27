@@ -12,6 +12,7 @@ return array(
     'Symfony\\Contracts\\Translation\\' => array($vendorDir . '/symfony/translation-contracts'),
     'Symfony\\Component\\Translation\\' => array($vendorDir . '/symfony/translation'),
     'Symfony\\Component\\PasswordHasher\\' => array($vendorDir . '/symfony/password-hasher'),
+    'Psr\\Clock\\' => array($vendorDir . '/psr/clock/src'),
     'Pecee\\' => array($vendorDir . '/pecee/simple-router/src/Pecee'),
     'JC\\BrDocs\\' => array($vendorDir . '/jeffersoncechinel/php-brdocs/src'),
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),

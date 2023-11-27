@@ -16,14 +16,16 @@
         <div id="content" class="p-4 p-md-5">
             <h1>Listagem de imóveis</h1>
             <a href="/imovel-cadastrar" class="round-button">+</a>
-            <?php if (sizeof($dados) == 0) : ?>
+            <?php if (sizeof($dados) == 0): ?>
                 <p>Não há imóveis cadastrados!</p>
-            <?php else : ?>
+            <?php else: ?>
                 <table>
                     <thead>
                         <tr>
+                            <th></th>
                             <th>Id</th>
-                            <th>Tipo</th>
+                            <th>Tipo imovel</th>
+                            <th>Tipo contrato</th>
                             <th>CEP</th>
                             <th>Rua</th>
                             <th>Bairro</th>
@@ -37,47 +39,112 @@
                             <th>Banheiros</th>
                             <th>Garagem</th>
                             <th>Proprietário</th>
+                            <th>Chave Disponível</th>
+                            <th>Imóvel Disponível</th>
                             <th></th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($dados as $imovel) : ?>
+                        <?php foreach ($dados as $imovel): ?>
                             <tr>
-                                <td><?= $imovel->id_imovel ?></td>
-                                <td><?= $imovel->tipo ?></td>
-                                <td><?= $imovel->cep ?></td>
-                                <td><?= $imovel->rua ?></td>
-                                <td><?= $imovel->bairro ?></td>
-                                <td><?= $imovel->numero ?></td>
-                                <td><?= $imovel->cidade ?></td>
-                                <td><?= $imovel->estado ?></td>
-                                <td><?= 'R$ '; echo($imovel->valor) ?></td>
-                                <td><?php 
-                                    if($imovel->condominio) {
-                                        echo'Sim';
+                                <td>
+                                    <form action="/imovel/<?=$imovel->id_imovel?>" method="GET">
+                                        <button class="button-list" type="submit"
+                                            value="<?= $imovel->id_imovel ?>">
+                                            <img src="../../public/IMG/eye.png" width="20" height="20">
+                                        </button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <?= $imovel->id_imovel ?>
+                                </td>
+                                <td>
+                                    <?= $imovel->tipo_imovel ?>
+                                </td>
+                                <td>
+                                    <?= $imovel->tipo_contrato ?>
+                                </td>
+                                <td>
+                                    <?= $imovel->cep ?>
+                                </td>
+                                <td>
+                                    <?= $imovel->rua ?>
+                                </td>
+                                <td>
+                                    <?= $imovel->bairro ?>
+                                </td>
+                                <td>
+                                    <?= $imovel->numero ?>
+                                </td>
+                                <td>
+                                    <?= $imovel->cidade ?>
+                                </td>
+                                <td>
+                                    <?= $imovel->estado ?>
+                                </td>
+                                <td>
+                                    <?= 'R$ ';
+                                    echo ($imovel->valor) ?>
+                                </td>
+                                <td>
+                                    <?php
+                                    if ($imovel->condominio) {
+                                        echo 'Sim';
                                     } else {
-                                        echo'Não';
+                                        echo 'Não';
                                     }
-                                ?></td>
-                                <td><?= $imovel->area_total; echo'm²'; ?></td>
-                                <td><?= $imovel->dormitorios ?></td>
-                                <td><?= $imovel->banheiros ?></td>
-                                <td><?= $imovel->garagem ?></td>
-                                <td><?= $imovel->nome ?></td>
+                                    ?>
+                                </td>
+                                <td>
+                                    <?= $imovel->area_total;
+                                    echo 'm²'; ?>
+                                </td>
+                                <td>
+                                    <?= $imovel->dormitorios ?>
+                                </td>
+                                <td>
+                                    <?= $imovel->banheiros ?>
+                                </td>
+                                <td>
+                                    <?= $imovel->garagem ?>
+                                </td>
+                                <td>
+                                    <?= $imovel->nome ?>
+                                </td>
+                                <td>
+                                    <?php
+                                    if ($imovel->chave_disponivel) {
+                                        echo 'Sim';
+                                    } else {
+                                        echo 'Não';
+                                    }
+                                    ?>
+                                </td>
+                                <td>
+                                    <?php
+                                    if ($imovel->imovel_disponivel) {
+                                        echo 'Sim';
+                                    } else {
+                                        echo 'Não';
+                                    }
+                                    ?>
+                                </td>
                                 <td>
                                     <form action="/imovel-editar" method="GET">
-                                    <button class="button-list" type="submit" name="editar" value="<?= $imovel->id_imovel ?>">
-                                        <img src="../../public/IMG/pencil.png" width="20" height="20">
-                                    </button>
+                                        <button class="button-list" type="submit" name="editar"
+                                            value="<?= $imovel->id_imovel ?>">
+                                            <img src="../../public/IMG/pencil.png" width="20" height="20">
+                                        </button>
                                     </form>
                                 </td>
                                 <td>
                                     <form action="/imovel-excluir" method="GET">
-                                    <button class="button-list" type="submit" name="excluir" value="<?= $imovel->id_imovel ?>">
-                                        <img src="../../public/IMG/trash.png" width="20" height="20">
-                                    </button>
-                                    </form>  
+                                        <button class="button-list" type="submit" name="excluir"
+                                            value="<?= $imovel->id_imovel ?>">
+                                            <img src="../../public/IMG/trash.png" width="20" height="20">
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

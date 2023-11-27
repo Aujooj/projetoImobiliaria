@@ -10,6 +10,10 @@ class HomeController
         $this->view('home');
     }
 
+    public function paginaInicial(){
+        $this->view('home');
+    }
+
     public function index()
     {
         $this->view('index');

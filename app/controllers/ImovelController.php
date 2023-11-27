@@ -5,6 +5,16 @@ class ImovelController
     use AutenticacaoTrait;
     use ViewTrait;
 
+    public function verDetalhes($id)
+    {
+    
+    $imovel = new Imovel();
+
+    $detalhesImovel = $imovel->buscarEntityImovel($id);
+
+    $this->view('Imovel', ['imovel' => $detalhesImovel[0]]);
+    }
+
     public function listar()
     {
         $this->autenticarLogin();
@@ -14,6 +24,7 @@ class ImovelController
 
     public function cadastrar()
     {
+
         $this->autenticarLogin();
         $imovel = new Imovel();
         $this->view('cadastroImovel', $imovel->buscarProprietarios());
@@ -25,7 +36,8 @@ class ImovelController
 
         $imovel = new Imovel();
 
-        $imovel->tipo = $_POST['tipo'];
+        $imovel->tipo_imovel = $_POST['tipo_imovel'];
+        $imovel->tipo_contrato = $_POST['tipo_contrato'];
         $imovel->cep = $_POST['cep'];
         $imovel->rua = $_POST['rua'];
         $imovel->bairro = $_POST['bairro'];
@@ -39,6 +51,8 @@ class ImovelController
         $imovel->banheiros = $_POST['banheiros'];
         $imovel->garagem = $_POST['garagem'];
         $imovel->proprietario = $_POST['proprietario'];
+        $imovel->chave_disponivel = true;
+        $imovel->imovel_disponivel = true;
         $_POST['validado'] = $imovel->inserir();
 
         $this->view('cadastroImovel');
@@ -59,7 +73,8 @@ class ImovelController
             $_POST['erro'] = true;
             $_POST['cep'] = '';
         } else {
-            $imovel->tipo = $_POST['tipo'];
+            $imovel->tipo_imovel = $_POST['tipo_imovel'];
+            $imovel->tipo_contrato = $_POST['tipo_contrato'];
             $imovel->cep = $_POST['cep'];
             $imovel->rua = $_POST['rua'];
             $imovel->bairro = $_POST['bairro'];
@@ -104,4 +119,6 @@ class ImovelController
         }
         return false;
     }
+// No ImovelController.php
+
 }

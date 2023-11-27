@@ -17,9 +17,9 @@
         "classmap": ["./"]
     },
     "require": {
-        "pecee/simple-router": "5.3.0.5",
+        "pecee/simple-router": "5.4.0.1",
         "jeffersoncechinel/php-brdocs": "^1.0",
-        "nesbot/carbon": "^2.66",
-        "symfony/password-hasher": "^6.2"
+        "nesbot/carbon": "^2.71",
+        "symfony/password-hasher": "^6.3"
     }
 }
